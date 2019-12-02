@@ -1,0 +1,42 @@
+<div class="container">
+    <ng-template [ngIf]="selectedResturant">
+        <!-- <div>{{selectedResturant.name}}</div> -->
+        <div class="feature-image" [ngStyle]="{'background-image': 'url(' + selectedResturant.featuredImageUrl + ')'}">
+            <div class="button-overlay" (click)="onBackClick()">
+                <i class="material-icons">arrow_back</i>
+            </div>
+        </div>
+        <div class="detail-area">
+            <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+                <h1 class="resturant-name">{{selectedResturant.name}}</h1>
+                <div fxLayout="column">
+                    <div class="rating">{{selectedResturant.resturantRating.rating}} <i
+                            class="material-icons primary-color ic-sm">star</i></div>
+                    <div class="votes">{{selectedResturant.resturantRating.votes}} (votes)</div>
+                </div>
+            </div>
+            <mat-tab-group class="tab-group" mat-align-tabs="center">
+                <mat-tab label="Overview">
+                    <h3>Cusines</h3>
+                    <p>{{selectedResturant.cuisines}}</p>
+                    <h3>Price range</h3>
+                    <p>{{getPrice()}}</p>
+                    <h3>Opening Hours</h3>
+                    <p *ngFor="let time of selectedResturant.timings">{{time}}</p>
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li *ngFor="let h of selectedResturant.highlights">{{h}}</li>
+                    </ul>
+                </mat-tab>
+                <mat-tab label="Reviews">Reviews</mat-tab>
+                <mat-tab label="Contact">
+                    <h3>Phone number</h3>
+                    <p>{{selectedResturant.phoneNumber}}</p>
+                    <h3>Location</h3>
+                    <p>{{selectedResturant.resturantLocation.address}}</p>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+    </ng-template>
+</div>

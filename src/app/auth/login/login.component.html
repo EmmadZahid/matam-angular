@@ -1,0 +1,38 @@
+<section class="container">
+    <form class="form" fxLayout="column" fxLayoutAlign="start stretch" (ngSubmit)="onLoginClick()" [formGroup]="form" >
+        <h1>Welcome To Matam</h1>
+        <p class="info-text">Login to view all the resturants around the world.</p>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Your Email" formControlName="email" type="email">
+            <mat-error *ngIf="form.get('email').hasError('emptyField') || form.get('email').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('maxLength')">
+                Maximum character length is {{maxLength}}.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('email')">
+                Invalid Email Address.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter Your Password"  formControlName="password" type="password">
+            <mat-error *ngIf="form.get('password').hasError('emptyField') || form.get('password').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('password').hasError('maxLength')">
+                Maximum character length is {{maxLength}}.
+            </mat-error>
+            <mat-error *ngIf="form.get('password').hasError('serverError')">
+                {{form.get('password').errors.serverError}}
+            </mat-error>
+            <mat-error *ngIf="form.get('password').hasError('minLength')">
+                Minimum character length is {{minLength}}.
+            </mat-error>
+        </mat-form-field>
+        <p></p>
+        <button mat-flat-button color="primary" fxFlex [disabled]="disableLoginButton">LogIn</button>
+        <p>Don't have an account? <a routerLink="/account/signup">Create Now</a></p>
+    </form>
+</section>

@@ -1,0 +1,61 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.container{
+    width: 100%;
+    max-width: 700px;
+    max-height: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: $foregroundColor;
+    border-radius: 10px;
+    
+    .feature-image{
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        position: relative;
+        .button-overlay{
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            > *{
+                margin: auto;
+            }
+        }
+    }
+    .detail-area{
+        @include calc( height, '100% - 200px');
+        padding: 10px 15px;
+        .header{
+            margin-bottom: 20px;
+            .resturant-name{
+                margin: 0px;
+            }
+        }
+    }
+    .votes{
+        font-size: $f14;
+        color: $infoColor;
+    }
+    .rating{
+        font-size: $f16;
+        font-weight: 500;
+        color:$primaryColor;
+        text-align: right;
+    }
+
+    .tab-group{
+        @include calc( max-height, '100% - 60px');
+        overflow: auto;
+    }
+}

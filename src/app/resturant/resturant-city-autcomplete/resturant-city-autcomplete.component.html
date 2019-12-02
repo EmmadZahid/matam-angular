@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <button mat-icon-button matPrefix>
+            <mat-icon>room</mat-icon>
+        </button>
+        <input matInput placeholder="City name" type="text" formControlName="city" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCitySelect($event)"
+            [displayWith]="displayCityName">
+            <mat-option *ngFor="let city of searchedCities" [value]="city">
+                <img class="flag" [src]="city.countryFlagUrl" alt="" height="25">
+                <span>{{city.name}}</span>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>

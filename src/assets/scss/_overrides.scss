@@ -1,0 +1,10 @@
+@import 'variables';
+
+.mat-flat-button{
+    line-height: 40px;
+}
+
+.error-snack-bar{
+	background-color: $errorColor;
+    color: white;
+}

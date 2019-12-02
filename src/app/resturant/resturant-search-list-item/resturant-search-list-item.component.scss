@@ -1,0 +1,31 @@
+@import '../../../assets/scss/variables';
+.item{
+    cursor: pointer;
+    height: 100px;
+    border: 1px solid $borderColor;
+    border-radius: 5px;
+    padding: 10px;
+    .thumbnail{
+        height: 100%;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    .title{
+        font-weight: 400;
+        font-size: $f16;
+    }
+    .address{
+        font-size: $f14;
+        color: $infoColor;
+    }
+    .votes{
+        font-size: $f14;
+        color: $infoColor;
+    }
+    .rating{
+        font-size: $f16;
+        font-weight: 500;
+        color:$primaryColor;
+        text-align: right;
+    }
+}

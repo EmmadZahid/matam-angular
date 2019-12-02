@@ -1,0 +1,10 @@
+<div class="list-container" fxLayout="column" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"
+    [scrollWindow]="false" [alwaysCallback]="true" (scrolled)="onScroll()">
+    <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px" *ngIf="!isError && resturants.length > 0">
+        <resturant-search-list-item fxFlex *ngFor="let resturant of resturants" [resturant]="resturant">
+        </resturant-search-list-item>
+    </div>
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <info-placeholder *ngIf="showInfoPlaceholder" [imagePath]="infoPlaceholderImageUrl" [title]="infoPlaceholderTitle"
+        [subTitle]="infoPlaceholderSubTilte"></info-placeholder>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start start" [formGroup]="form">
+    <resturant-city-autcomplete (optionSelected)="onCitySelect($event)" [resturantCity]="selectedCity"></resturant-city-autcomplete>
+    <mat-form-field appearance="outline" fxFlex>
+        <mat-label>Search</mat-label>
+        <button mat-icon-button matPrefix>
+            <mat-icon>search</mat-icon>
+        </button>
+        <input matInput placeholder="Search for resturant" type="text"  formControlName="search">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="search-btn" [disabled]="selectedCity == null || disableSearchButton" 
+    (click)="onSearchButtonClick()">Search</button>
+</div>

@@ -1,0 +1,13 @@
+<div class="item" fxLayout="row" matRipple (click)="onItemClick()">
+    <img class="thumbnail" [src]="resturant.thumbnailUrl" alt="">
+    <div fxFlex fxLayout="column" fxLayoutAlign="start stretch" >
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+            <div class="title">{{resturant.name}}</div>
+            <div fxLayout="column">
+                <div class="rating">{{resturant.resturantRating.rating}} <i class="material-icons primary-color ic-sm">star</i></div>
+                <div class="votes">{{resturant.resturantRating.votes}} (votes)</div>
+            </div>
+        </div>
+        <div class="address">{{resturant.resturantLocation.address}}</div>
+    </div>
+</div>

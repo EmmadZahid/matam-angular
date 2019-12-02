@@ -1,0 +1,15 @@
+@import '../../../assets/scss/variables';
+
+.header{
+    width: 100%;
+    background-color: #ffffff;
+    height: $headerHeight;
+    > div{
+        max-width: 1200px;
+        height: 100%;
+        width: 100%;
+    }
+    .logo{
+        width: 100px;
+    }
+}

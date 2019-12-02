@@ -1,0 +1,18 @@
+@import '../../../assets/scss/overrides';
+@import '../../../assets/scss/variables';
+
+:host{
+    margin: auto;
+}
+
+.form{
+    width: 480px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 20px;
+    .info-text{
+        font-size: $f14;
+        color: $infoColor;
+    }
+}

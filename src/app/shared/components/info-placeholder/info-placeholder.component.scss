@@ -1,0 +1,19 @@
+@import "../../../../assets/scss/variables";
+.container{
+    display: table-cell;
+    vertical-align: middle;
+    width: 400px;
+    max-width: 400px;
+    text-align: center;
+
+    .sub-title{
+        color: $infoColor;
+        font-size: $f14;
+    }
+}
+
+:host{
+    display: table;
+    height: 100%;
+    width: 100%;
+}

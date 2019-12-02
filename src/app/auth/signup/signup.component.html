@@ -1,0 +1,51 @@
+<section class="container">
+    <form class="form" fxLayout="column" fxLayoutAlign="start stretch" (ngSubmit)="onSignupClick()" [formGroup]="form" >
+        <h1>SignUp</h1>
+        <p class="info-text">Create your account and enjoy the world of resturants.</p>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Enter Your Full Name" formControlName="fullname" type="text" name="fullname">
+            <mat-error *ngIf="form.get('fullname').hasError('emptyField') || form.get('fullname').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('fullname').hasError('maxLength')">
+                Maximum character length is {{maxLength}}.
+            </mat-error>
+            <mat-error *ngIf="form.get('fullname').hasError('minLength')">
+                Minimum character length is {{minLength}}.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Your Email" formControlName="email" type="email" name="email">
+            <mat-error *ngIf="form.get('email').hasError('emptyField') || form.get('email').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('maxLength')">
+                Maximum character length is {{maxLength}}.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('email')">
+                Invalid Email Address.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('serverError')">
+                {{form.get('email').errors.serverError}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter Your Password"  formControlName="password" type="password" name="password">
+            <mat-error *ngIf="form.get('password').hasError('emptyField') || form.get('password').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('password').hasError('maxLength')">
+                Maximum character length is {{maxLength}}.
+            </mat-error>
+            <mat-error *ngIf="form.get('password').hasError('minLength')">
+                Minimum character length is {{minLength}}.
+            </mat-error>
+        </mat-form-field>
+        <p></p>
+        <button mat-flat-button id="signup-button" color="primary" fxFlex [disabled]="disableSignupButton">SignUp</button>
+        <p>Already have account? <a routerLink="/account/login">Login</a></p>
+    </form>
+</section>

@@ -1,7 +1,7 @@
 # matam-angular
-Matam is an arabic word that means restaurant.
+Matam is an Arabic word that means restaurant.
 ## Description
-Matam let's you search resturants around the world. You can search resturant by selecting the city and giving the search term which is optional. Select your resturant and check its reviews and other information.
+Matam lets you search restaurants around the world. You can search restaurant by selecting the city and giving the search term which is optional. Select your restaurant and check its reviews and other information.
 
 ## Features
 - Create account to login

@@ -25,3 +25,8 @@ Matam lets you search restaurants around the world. You can search restaurant by
 `npm install --save`
 - To run the application, run
 `ng serve`
+
+## To Do's
+- Use NgRx for application state management
+- Write all unit test for components
+- Write all e2e tests

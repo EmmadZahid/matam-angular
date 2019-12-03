@@ -30,6 +30,7 @@ export class ResturantReviewListComponent implements OnInit, OnDestroy {
           this.reviews = reviews
           this.isLoading = false
           this.isError = false
+          this.showInfoPlaceholderIfRequired()
         }, error =>{
           this.isLoading = false
           this.isError = true
@@ -45,6 +46,11 @@ export class ResturantReviewListComponent implements OnInit, OnDestroy {
       this.infoPlaceholderImageUrl = "./assets/images/ic_error.png"
       this.infoPlaceholderTitle = "Oops, something went wrong!"
       this.infoPlaceholderSubTilte = "Please check your internet connect or reload the page to make sure its working."
+    } else if(!this.isLoading && !this.isError && this.reviews.length == 0){
+      this.showInfoPlaceholder = true
+      this.infoPlaceholderImageUrl = "./assets/images/ic_no_result.png"
+      this.infoPlaceholderTitle = "No reviews given"
+      this.infoPlaceholderSubTilte = "No user has given the reviews."
     } else{
       this.showInfoPlaceholder = false
     }

@@ -1,0 +1,15 @@
+<div class="review" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="user-info" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+            <img [src]="review.reviewUser.profileImageUrl" alt="">
+            <div fxLayout="column">
+                <div class="name">{{review.reviewUser.name}}</div>
+                <div class="time">{{review.reviewTimeFriendly}}</div>
+            </div>
+        </div>
+        <div class="user-rating">
+            User Rated: <span class="rating">{{review.rating}} <i class="material-icons primary-color ic-sm">star</i></span>
+        </div>
+    </div>
+    <p class="review-text">{{review.reviewText}}</p>
+</div>

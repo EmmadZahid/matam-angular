@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="loader" *ngIf="isLoading">
+        <app-spinner></app-spinner>
+    </div>
     <ng-template [ngIf]="selectedResturant">
         <!-- <div>{{selectedResturant.name}}</div> -->
         <div class="feature-image" [ngStyle]="{'background-image': 'url(' + selectedResturant.featuredImageUrl + ')'}">
@@ -28,7 +31,9 @@
                         <li *ngFor="let h of selectedResturant.highlights">{{h}}</li>
                     </ul>
                 </mat-tab>
-                <mat-tab label="Reviews">Reviews</mat-tab>
+                <mat-tab label="Reviews">
+                    <resturant-review-list [resturantId]="selectedResturant.id" ></resturant-review-list>
+                </mat-tab>
                 <mat-tab label="Contact">
                     <h3>Phone number</h3>
                     <p>{{selectedResturant.phoneNumber}}</p>

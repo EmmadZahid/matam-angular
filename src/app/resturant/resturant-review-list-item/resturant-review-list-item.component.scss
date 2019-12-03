@@ -1,0 +1,28 @@
+@import '../../../assets/scss/variables';
+.review{
+    padding: 10px 10px; 
+}
+.user-info{
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .name{
+        font-weight: 500;
+    }
+    .time{
+        color: $infoColor;
+        font-size: $f12;
+    }
+}
+.rating{
+    font-size: $f16;
+    font-weight: 500;
+    color:$primaryColor;
+    text-align: right;
+}
+
+.review-text{
+    font-size: $f14;
+}

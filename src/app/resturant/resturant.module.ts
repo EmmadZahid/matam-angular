@@ -12,6 +12,8 @@ import { ResturantInterceptor } from './resturant.interceptor';
 import { ResturantSearchComponent } from './resturant-search/resturant-search.component';
 import { ResturantCityAutcompleteComponent } from './resturant-city-autcomplete/resturant-city-autcomplete.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ResturantReviewListComponent } from './resturant-review-list/resturant-review-list.component';
+import { ResturantReviewListItemComponent } from './resturant-review-list-item/resturant-review-list-item.component';
 @NgModule({
   declarations: [
     ResturantSearchComponent, 
@@ -19,7 +21,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ResturantSearchListItemComponent, 
     ResturantsDashboardComponent, 
     ResturantDetailComponent, 
-    ResturantCityAutcompleteComponent
+    ResturantCityAutcompleteComponent, ResturantReviewListComponent, ResturantReviewListItemComponent
   ],
   imports:[
     BrowserModule,

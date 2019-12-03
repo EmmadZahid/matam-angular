@@ -5,6 +5,7 @@ import { ResturantCity } from './models/resturant-city.model';
 import { ResturantDetail } from './models/resturant-detail.model';
 import { Observable, Subject, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
+import { ResturantReview } from './models/resturant-review.model';
 
 @Injectable({ providedIn: 'root' })
 export class ResturantService {
@@ -71,6 +72,58 @@ export class ResturantService {
                         resturants.push(new ResturantDetail(resturant['restaurant']))
                     }
                     return resturants
+                }
+            ), catchError(
+                error =>{
+                    this.snackBar.open('Oops, something went wrong!', null, {
+                        duration: 2000,
+                        panelClass: ['error-snack-bar']
+                    })
+                    return throwError(error)
+                }
+            )
+        )
+    }
+
+    getResturantDetails(resturantId:string){
+        let params = {
+            res_id: resturantId
+        }
+        
+
+        return this.http.get(this.resturantApi + 'restaurant',
+        {params:params}).pipe(
+            map(
+                (data:any)=>{
+                    return new ResturantDetail(data)
+                }
+            ), catchError(
+                error =>{
+                    this.snackBar.open('Oops, something went wrong!', null, {
+                        duration: 2000,
+                        panelClass: ['error-snack-bar']
+                    })
+                    return throwError(error)
+                }
+            )
+        )
+    }
+
+    getResturantReviews(resturantId:string){
+        let params = {
+            res_id: resturantId
+        }
+        
+
+        return this.http.get(this.resturantApi + 'reviews',
+        {params:params}).pipe(
+            map(
+                (data:any)=>{
+                    let reviews:ResturantReview[] = []
+                    for(let review of data['user_reviews']){
+                        reviews.push(new ResturantReview(review))
+                    }
+                    return reviews
                 }
             ), catchError(
                 error =>{

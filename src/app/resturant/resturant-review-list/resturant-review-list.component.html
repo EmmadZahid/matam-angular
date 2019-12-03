@@ -1,0 +1,9 @@
+<div fxLayout="column">
+    <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px" *ngIf="!isError && reviews.length > 0">
+        <resturant-review-list-item fxFlex *ngFor="let review of reviews" [review]="review">
+        </resturant-review-list-item>
+    </div>
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <info-placeholder *ngIf="showInfoPlaceholder" [imagePath]="infoPlaceholderImageUrl" [title]="infoPlaceholderTitle"
+        [subTitle]="infoPlaceholderSubTilte"></info-placeholder>
+</div>

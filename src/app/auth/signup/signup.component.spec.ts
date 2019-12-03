@@ -11,6 +11,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
 import { LoginComponent } from '../login/login.component';
 import { authRoutesNames } from '../auth-routes.names';
+import { LocalstoreService, LocalstoreKey } from 'src/app/shared/services/localstore.service';
+import { User } from '../models/user.model';
 
 fdescribe('SignupComponent', () => {
   let component: SignupComponent;
@@ -19,7 +21,7 @@ fdescribe('SignupComponent', () => {
   let email:AbstractControl
   let password:AbstractControl
   let router:Router
-  let location:Location
+  let localstoreService:LocalstoreService
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,6 +38,8 @@ fdescribe('SignupComponent', () => {
     ]
     })
     .compileComponents();
+
+    localstoreService = TestBed.get(LocalstoreService)
   }));
 
   beforeEach(() => {
@@ -129,15 +133,23 @@ fdescribe('SignupComponent', () => {
   });
 
   it('should singup a user', fakeAsync(() => {
-    router.navigate([authRoutesNames.ACCOUNT,authRoutesNames.SIGNUP])
-
     fullName.setValue('Conor McGregor')
     email.setValue('test@test.com')
     password.setValue('123123123')
     component.onSignupClick()
     
-    tick(1000)
-    expect(router.url).toBe('/' + authRoutesNames.ACCOUNT + '/' + authRoutesNames.SIGNUP)
+    tick(2000)
+    
+    let users:User[] = localstoreService.getItem(LocalstoreKey.Users)
+    let found:boolean
+    for(let user of users){
+      if(user.email == 'test@test.com'){
+        found = true
+        break
+      }
+    }
+
+    expect(found).toBeTruthy()
   }));
 
   it('should not allow registering already registered user', fakeAsync(() => {
